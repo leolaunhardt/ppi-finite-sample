@@ -1,0 +1,39 @@
+"""
+Figure 5.4: tree_cover_binary.
+
+Delta against PPI at the fixed weight lambda_0 = 1 over n, with PPI at a fixed weight, both Double-PPI
+weights and the two-level guard G^{C,P+}_+(4, 3/2). Simulated through
+ppi/populations.py: the labelled sample is drawn without replacement, the
+unlabelled block is its complement, and the grid is capped at a fifth of the
+population.
+
+Writes: output/pdf/atlas_b_tree_cover_binary.pdf
+Include with \\includegraphics[width=\\textwidth]{...} inside a 0.49 subfigure.
+
+Suggested subcaption
+--------------------
+\\caption{Tree cover}
+"""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from ppi import panels, style
+
+NAME = "atlas_b_tree_cover_binary"
+WIDTH_FRACTION = 0.49
+DATASET = "tree_cover_binary"
+
+
+def build():
+    return panels.atlas_panel(DATASET, baseline="P0", ylabel=False,
+                              width_fraction=WIDTH_FRACTION,
+                              order=panels.ATLAS_ORDER_P0,
+                              reference=panels.ATLAS_REFERENCE_P0,
+                              yscale="linear")
+
+
+if __name__ == "__main__":
+    style.save(build(), NAME)

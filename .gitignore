@@ -1,0 +1,23 @@
+# Data bundles are not part of the repository; data/README.md documents every
+# source and how to rebuild them. Only the build scripts and that guide are
+# tracked.
+data/*.npz
+data/*.csv
+data/*.json
+data/*HANDOVER*.md
+data/ppi_py/
+
+# Monte-Carlo caches, rebuilt by build_all.py (see README for the cost).
+simdata/
+
+# Figure output; the thesis keeps its own copies under graphics/.
+output/
+
+# Local environment and editor leftovers.
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+*.bak
+*.bak_*
+*backup*
